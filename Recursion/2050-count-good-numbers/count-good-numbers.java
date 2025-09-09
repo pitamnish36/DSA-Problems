@@ -1,4 +1,4 @@
-class Solution {
+class CountGoodNumbers {
     long modulo=100_000_000_7;
     public int countGoodNumbers(long n) {
         long even=count(5,(n+1)/2);
