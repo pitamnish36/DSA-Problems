@@ -40,8 +40,8 @@ class Solution {
         if(root==null){
             return;
         }
-        positions.add(new int[]{col,row,root.val});
         collectNode(root.left,positions,row+1,col-1);
+        positions.add(new int[]{col,row,root.val});
         collectNode(root.right,positions,row+1,col+1);
     }
 }
