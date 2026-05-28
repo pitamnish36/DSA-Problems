@@ -5,16 +5,16 @@ class Solution {
         if(s.length()<=10){
             return new ArrayList<>();
         }
-        int st=0;
-        for(int i=10;i<=s.length();i++){
-            String sub=s.substring(st,i);
+        
+        for(int i=0;i<=s.length()-10;i++){
+            String sub=s.substring(i,i+10);
             if(map.containsKey(sub)){
                 sequenceList.add(sub);
             }
             else{
                 map.put(sub,1);
             }
-            st++;
+            
         }
         return List.copyOf(sequenceList);
     }
