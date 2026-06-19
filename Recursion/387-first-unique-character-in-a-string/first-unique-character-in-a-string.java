@@ -1,7 +1,15 @@
 class Solution {
     public int firstUniqChar(String s) {
-        Character ch=s.chars().mapToObj(c->(char)c).filter(x->s.indexOf(x)==s.lastIndexOf(x)).findFirst().orElse('1');
-        
-        return ch=='1'?-1:s.indexOf(ch);
+        Map<Character,Integer> map=new LinkedHashMap<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+        for(Map.Entry<Character,Integer> entry : map.entrySet()){
+            if(entry.getValue()==1){
+                return s.indexOf(entry.getKey());
+            }
+        }
+        return -1;
     }
 }
